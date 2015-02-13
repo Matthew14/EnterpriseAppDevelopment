@@ -24,4 +24,5 @@ class UsersDAO {
         $this->dbManager->excecuteQuery($sql);        
 	}
 }
+
 ?>
