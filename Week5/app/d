@@ -1,0 +1,1 @@
+curl -H Content-Type: application/json -d '{name:jimmy, password: 4, email:h@h.jo, surname:jimson}' http://localhost//EnterpriseAppDevelopment/Week5/app/index.php/users/
