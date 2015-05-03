@@ -3,11 +3,15 @@ require_once "../Slim/Slim.php";
 Slim\Slim::registerAutoloader ();
 
 $app = new \Slim\Slim (); // slim run-time object
-                          
+
 require_once "conf/config.inc.php";
 
+
+
+
+
 $app->map ( "/users(/:id)", function ($userID = null) use($app) {
-	
+
 	$httpMethod = $app->request->getMethod();
 	if (($userID == null) or is_numeric ( $userID )) {
 		$parameters["id"] = $userID;		//prepare parameters to be passed to the controller (example: ID)
@@ -30,9 +34,9 @@ $app->map ( "/users(/:id)", function ($userID = null) use($app) {
 			default :
 		}
 	}
-	
+
 	return new loadRunMVCComponents ( "UserModel", "UserController", "jsonView", $action, $app, $parameters );
-	
+
 } )->via ( "GET", "POST", "PUT", "DELETE" );
 
 $app->run ();
@@ -43,7 +47,7 @@ class loadRunMVCComponents {
 		include_once "models/" . $modelName . ".php";
 		include_once "controllers/" . $controllerName . ".php";
 		include_once "views/" . $viewName . ".php";
-		
+
 		$this->model = new $modelName (); // common model
 		$this->controller = new $controllerName ( $this->model, $action, $app, $parameters );
 		$this->view = new $viewName ( $this->controller, $this->model, $app ); // common view

@@ -1,10 +1,10 @@
 <?php
 /* database constants */
-define("DB_HOST", "localhost" ); 		// set database host
-define("DB_USER", "root" ); 			// set database user
-define("DB_PASS", "" ); 				// set database password
+define("DB_HOST", "mysql.lucalongo.eu" ); 		// set database host
+define("DB_USER", "enterpriseAppDev" ); 			// set database user
+define("DB_PASS", "luca20142015" ); 				// set database password
 define("DB_PORT", 3306);				// set database port
-define("DB_NAME", "luca" ); 			// set database name
+define("DB_NAME", "enterpriseAppDev" ); 			// set database name
 define("DB_CHARSET", "utf8" ); 			// set database charset
 define("DB_DEBUGMODE", true ); 			// set database charset
 
