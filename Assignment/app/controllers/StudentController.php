@@ -1,4 +1,6 @@
 <?php
+require_once 'helpers.php';
+
 class StudentController {
     private $slimApp;
     private $model;
@@ -21,34 +23,13 @@ class StudentController {
         }
     }
 
-    private function average($data){
-        $total = 0;
-        $numAges = count($data);
-        for ($i = 0; $i < $numAges; ++$i)
-            $total+= $data[$i]["age"];
-        return $total / $numAges;
-    }
-
-    private function stdDev($data){
-        $average = $this->average($data);
-        $numAges = count($data);
-
-        $total = 0;
-
-        for ($i = 0; $i < $numAges; ++$i)
-            $total += pow($data[$i]["age"] - $average, 2);
-
-        return sqrt($total/$numAges);
-    }
-
-
     private function getUserAgeAverageAndStdDev(){
         $answer = $this->model->getUserAges();
 
         if ($answer != null) {
 
-            $stdDeviation = $this->stdDev($answer);
-            $average = $this->average($answer);
+            $stdDeviation = stdDev($answer);
+            $average = average($answer);
 
             $response = array(
                 "std_dev" => $stdDeviation,

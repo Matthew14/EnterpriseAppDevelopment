@@ -89,7 +89,10 @@ $app->map("/statistics/questionnaires(/:taskID)", function($taskID = null) use($
     }
     else{
          $action = ACTION_GET_QUESTIONNAIRES_INFO_BY_TASK;
+         $params = array('taskID' => $taskID);
     }
+    return new loadRunMVCComponents($model, $controller, $view, $action, $app, $params);
+
 
 })->via("GET");
 

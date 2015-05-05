@@ -65,6 +65,11 @@ define("GENERAL_INVALIDBODY", "Request is ok but transmitted body is invalid");
 
 define("GENERAL_WELCOME_MESSAGE", "Welcome to MSc dissertation API");
 
+
+define("XML_MIME", "application/xml");
+define("JSON_MIME", "application/json");
+
+
 /* representation of a new user in the DB */
 define("TABLE_USER_NAME_LENGTH", 25);
 define("TABLE_USER_SURNAME_LENGTH", 25);
@@ -72,7 +77,9 @@ define("TABLE_USER_EMAIL_LENGTH", 50);
 define("TABLE_USER_PASSWORD_LENGTH", 40);
 
 
-define("XML_MIME", "application/xml");
-define("JSON_MIME", "application/json");
+//DB field names
+define("MWL_TOTAL_FIELD_NAME", "MWL_total");
+define("RSME_FIELD_NAME", "RSME");
+define("TASK_NUMBER_FIELD_NAME", "task_number");
 
 ?>
