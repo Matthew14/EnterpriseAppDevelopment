@@ -22,6 +22,18 @@ class StudentsDAO{
 
         return $rows;
     }
+
+    public function get_all_ages_by_nationality($nat){
+        $sql = "SELECT age from students s join nationalities n on n.id = s.id_nationality where lower(n.description) LIKE ?";
+
+        $stmt = $this->dbManager->prepareQuery($sql);
+        $this->dbManager->bindValue ($stmt, 1, strtolower($nat), $this->dbManager->STRING_TYPE);
+        $this->dbManager->executeQuery($stmt);
+        $rows = $this->dbManager->fetchResults($stmt);
+
+        return $rows;
+
+    }
 }
 
 ?>

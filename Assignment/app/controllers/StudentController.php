@@ -9,27 +9,28 @@ class StudentController {
         $this->model = $model;
         $this->slimApp = $slimApp;
 
-        $id = $parameters["id"];
         if ($action != null) {
             switch ($action) {
                 case ACTION_GET_STUDENTS_STATS :
                     $this->getUserAgeAverageAndStdDev();
                     break;
                 case ACTION_GET_STUDENTS_STATS_BY_NATIONALITY :
-                    $this->getUsers ();
+
+                    $nationality = $parameters["nationality"];
+                    $this->getUserAgeAverageAndStdDev($nationality);
                     break;
                 default : break;
             }
         }
     }
 
-    private function getUserAgeAverageAndStdDev(){
-        $answer = $this->model->getUserAges();
+    private function getUserAgeAverageAndStdDev($nationality = null){
+        $answer = $nationality == null ? $this->model->getStudentAges() : $this->model->getStudentAgesByNationality($nationality);
 
         if ($answer != null) {
 
-            $stdDeviation = stdDev($answer);
-            $average = average($answer);
+            $stdDeviation = stdDev($answer, "age");
+            $average = average($answer, "age");
 
             $response = array(
                 "std_dev" => $stdDeviation,

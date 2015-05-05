@@ -20,11 +20,12 @@ class StudentModel{
         $this->validationSuite = new Validation();
     }
 
-    public function getUserAges(){
+    public function getStudentAges(){
         return $this->StudentsDAO->get_all_ages();
     }
 
-    public function getUserAgesByNationality(){
+    public function getStudentAgesByNationality($nationality){
+        return $this->StudentsDAO->get_all_ages_by_nationality($nationality);
 
     }
 }

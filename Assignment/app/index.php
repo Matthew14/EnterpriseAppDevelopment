@@ -41,7 +41,7 @@ $app->map("/statistics/students(/:nationality)", function($nationality = null) u
 
     else{
         $action = ACTION_GET_STUDENTS_STATS_BY_NATIONALITY;
-        $params = $nationality;
+        $params = array("nationality" => $nationality);
     }
 
     return new loadRunMVCComponents($model, $controller, $view, $action, $app, $params);

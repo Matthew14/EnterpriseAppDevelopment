@@ -20,8 +20,8 @@ class TaskController {
         if ($answer != null) {
 
             $count = count($answer);
-            $stdDeviation = stdDev($answer);
-            $average = average($answer);
+            $stdDeviation = stdDev($answer, "duration_mins");
+            $average = average($answer, "duration_mins");
 
             $response = array(
                 "number_of_tasks" => $count,
