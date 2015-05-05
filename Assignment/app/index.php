@@ -1,14 +1,97 @@
 <?php
+
+/*
+    Author: Matthew O'Neill / C11354316
+    Enterprise Application Development Assignment
+
+*/
+
 require_once "../Slim/Slim.php";
+require_once "conf/config.inc.php";
+
 Slim\Slim::registerAutoloader ();
+
+function authenticate(\Slim\Route $route){
+
+
+}
+
+$jsonMIME = "application/json";
+$xmlMIME = "application/xml";
 
 $app = new \Slim\Slim (); // slim run-time object
 
-require_once "conf/config.inc.php";
+//Route 1 and 2
+$app->map("/statistics/students(/:nationality)", function($nationality = null) use($app){
+
+    $params = null;
+    $model = "StudentModel";
+    $controller = "StudentController";
+    $reqType = $app->request->headers->get('Accept');
+
+    if($reqType != XML_MIME && $reqType != JSON_MIME)
+        $reqType = JSON_MIME;
+
+    $app->response->headers->set("Content-Type", $reqType);
+
+    $view = $reqType == XML_MIME ? "xmlView" : "jsonView";
+
+    if($nationality == null)
+        $action = ACTION_GET_STUDENTS_STATS;
+
+    else{
+        $action = ACTION_GET_STUDENTS_STATS_BY_NATIONALITY;
+        $params = $nationality;
+    }
+
+    return new loadRunMVCComponents($model, $controller, $view, $action, $app, $params);
+
+})->via("GET");
 
 
+//Route 3
+$app->map("/statistics/tasks", function() use($app){
+
+    $params = null;
+    $model = "TaskModel";
+    $controller = "TaskController";
+    $reqType = $app->request->headers->get('Accept');
+
+    if($reqType != XML_MIME && $reqType != JSON_MIME)
+        $reqType = JSON_MIME;
+
+    $app->response->headers->set("Content-Type", $reqType);
+    $view = $reqType == XML_MIME ? "xmlView" : "jsonView";
+    $action = ACTION_GET_TASKS_INFO;
+
+    return new loadRunMVCComponents($model, $controller, $view, $action, $app, $params);
+
+})->via("GET");
 
 
+//Route 4 and 5
+$app->map("/statistics/questionnaires(/:taskID)", function($taskID = null) use($app){
+
+    $params = null;
+    $model = "QuestionnaireModel";
+    $controller = "QuestionnaireController";
+    $reqType = $app->request->headers->get('Accept');
+
+    if($reqType != XML_MIME && $reqType != JSON_MIME)
+        $reqType = JSON_MIME;
+
+    $app->response->headers->set("Content-Type", $reqType);
+
+    $view = $reqType == XML_MIME ? "xmlView" : "jsonView";
+
+    if($taskID == null){
+        $action = ACTION_GET_QUESTIONNAIRES_INFO;
+    }
+    else{
+         $action = ACTION_GET_QUESTIONNAIRES_INFO_BY_TASK;
+    }
+
+})->via("GET");
 
 $app->map ( "/users(/:id)", function ($userID = null) use($app) {
 
@@ -51,7 +134,7 @@ class loadRunMVCComponents {
         $this->model = new $modelName (); // common model
         $this->controller = new $controllerName ( $this->model, $action, $app, $parameters );
         $this->view = new $viewName ( $this->controller, $this->model, $app ); // common view
-        $this->view->output (); // this returns the response to the requesting client
+        $this->view->output(); // this returns the response to the requesting client
     }
 }
 

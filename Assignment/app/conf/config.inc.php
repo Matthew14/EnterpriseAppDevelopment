@@ -1,12 +1,12 @@
 <?php
 /* database constants */
-define("DB_HOST", "mysql.lucalongo.eu" ); 		// set database host
-define("DB_USER", "enterpriseAppDev" ); 			// set database user
-define("DB_PASS", "luca20142015" ); 				// set database password
-define("DB_PORT", 3306);				// set database port
-define("DB_NAME", "enterpriseAppDev" ); 			// set database name
-define("DB_CHARSET", "utf8" ); 			// set database charset
-define("DB_DEBUGMODE", true ); 			// set database charset
+define("DB_HOST", "mysql.lucalongo.eu" );       // set database host
+define("DB_USER", "enterpriseAppDev" );             // set database user
+define("DB_PASS", "luca20142015" );                 // set database password
+define("DB_PORT", 3306);                // set database port
+define("DB_NAME", "enterpriseAppDev" );             // set database name
+define("DB_CHARSET", "utf8" );          // set database charset
+define("DB_DEBUGMODE", true );          // set database charset
 
 
 /* actions for the USERS REST resource */
@@ -15,6 +15,16 @@ define("ACTION_GET_USERS", 44);
 define("ACTION_CREATE_USER", 55);
 define("ACTION_UPDATE_USER", 66);
 define("ACTION_DELETE_USER", 77);
+
+
+define("ACTION_GET_STUDENTS_STATS", 90);
+define("ACTION_GET_STUDENTS_STATS_BY_NATIONALITY", 91);
+
+define("ACTION_GET_TASKS_INFO", 92);
+
+define("ACTION_GET_QUESTIONNAIRES_INFO", 93);
+define("ACTION_GET_QUESTIONNAIRES_INFO_BY_TASK", 94);
+
 
 /* HTTP status codes 2xx*/
 define("HTTPSTATUS_OK", 200);
@@ -60,5 +70,9 @@ define("TABLE_USER_NAME_LENGTH", 25);
 define("TABLE_USER_SURNAME_LENGTH", 25);
 define("TABLE_USER_EMAIL_LENGTH", 50);
 define("TABLE_USER_PASSWORD_LENGTH", 40);
+
+
+define("XML_MIME", "application/xml");
+define("JSON_MIME", "application/json");
 
 ?>

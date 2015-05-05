@@ -1,18 +1,12 @@
 <?php
-class jsonView
-{
-	private $model, $controller, $slimApp;
-
-	public function __construct($controller, $model, $slimApp) {
-		$this->controller = $controller;
-		$this->model = $model;
-		$this->slimApp = $slimApp;		
-	}
-
-	public function output(){
-		//prepare json response
-		$jsonResponse = json_encode($this->model->apiResponse);
-		$this->slimApp->response->write($jsonResponse);
-	}
+/**
+*   @author Matthew O'Neill / C11354316
+*/
+require_once 'baseView.php';
+class jsonView extends baseView{
+    public function output(){
+        $jsonResponse = json_encode($this->model->apiResponse);
+        $this->slimApp->response->write($jsonResponse);
+    }
 }
 ?>
