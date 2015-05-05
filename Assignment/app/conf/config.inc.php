@@ -83,4 +83,9 @@ define("RSME_FIELD_NAME", "RSME");
 define("TASK_NUMBER_FIELD_NAME", "task_number");
 define("INTRUSIVENESS_FIELD_NAME", "intrusiveness");
 
+
+//Hard code username and password as there is no users table
+define("USERNAME", "matt");
+define("PASSWORD", "mattPass");
+
 ?>
