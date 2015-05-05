@@ -81,5 +81,6 @@ define("TABLE_USER_PASSWORD_LENGTH", 40);
 define("MWL_TOTAL_FIELD_NAME", "MWL_total");
 define("RSME_FIELD_NAME", "RSME");
 define("TASK_NUMBER_FIELD_NAME", "task_number");
+define("INTRUSIVENESS_FIELD_NAME", "intrusiveness");
 
 ?>

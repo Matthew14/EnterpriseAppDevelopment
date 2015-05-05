@@ -25,7 +25,7 @@ class QuestionnaireModel{
     }
 
     public function get_questionnaires_by_task($taskID){
-
+        return $this->QuestionnairesDAO->get_all_questionnaires($taskID);
     }
 
 }
