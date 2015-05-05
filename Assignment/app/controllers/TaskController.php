@@ -1,6 +1,10 @@
 <?php
 require_once 'helpers.php';
 
+/**
+ * @author Matthew O'Neill / C11354316
+ * Controller for operations involving Tasks
+ */
 class TaskController {
     private $slimApp;
     private $model;

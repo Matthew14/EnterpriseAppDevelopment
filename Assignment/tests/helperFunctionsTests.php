@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . "/../simpletest/autorun.php";
 require_once __DIR__ . "/../app/controllers/helpers.php";
-
+/**
+ * @author Matthew O'Neill / C11354316
+ * Tests for the functional code of this rest service
+ */
 class someTests extends UnitTestCase{
 
     public function testAverageIsCorrectWithNumbers(){

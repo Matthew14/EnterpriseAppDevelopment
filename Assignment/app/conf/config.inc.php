@@ -8,32 +8,29 @@ define("DB_NAME", "enterpriseAppDev" );             // set database name
 define("DB_CHARSET", "utf8" );          // set database charset
 define("DB_DEBUGMODE", true );          // set database charset
 
+//DB field names
+define("MWL_TOTAL_FIELD_NAME", "MWL_total");
+define("RSME_FIELD_NAME", "RSME");
+define("TASK_NUMBER_FIELD_NAME", "task_number");
+define("INTRUSIVENESS_FIELD_NAME", "intrusiveness");
 
-/* actions for the USERS REST resource */
-define("ACTION_GET_USER", 33);
-define("ACTION_GET_USERS", 44);
-define("ACTION_CREATE_USER", 55);
-define("ACTION_UPDATE_USER", 66);
-define("ACTION_DELETE_USER", 77);
-
-
+//REST ACTIONS
 define("ACTION_GET_STUDENTS_STATS", 90);
 define("ACTION_GET_STUDENTS_STATS_BY_NATIONALITY", 91);
-
 define("ACTION_GET_TASKS_INFO", 92);
-
 define("ACTION_GET_QUESTIONNAIRES_INFO", 93);
 define("ACTION_GET_QUESTIONNAIRES_INFO_BY_TASK", 94);
 
+//HTTP METHODS:
+define("HTTP_GET", "GET");
 
 /* HTTP status codes 2xx*/
 define("HTTPSTATUS_OK", 200);
 define("HTTPSTATUS_CREATED", 201);
 define("HTTPSTATUS_NOCONTENT", 204);
 
-/* HTTP status codes 3xx (with slim the output is not produced i.e. echo statements are not processed) */
+// HTTP status codes 3xx
 define("HTTPSTATUS_NOTMODIFIED", 304);
-
 
 /* HTTP status codes 4xx */
 define("HTTPSTATUS_BADREQUEST", 400);
@@ -48,6 +45,20 @@ define("HTTPSTATUS_INTSERVERERR", 500);
 
 define("TIMEOUT_PERIOD", 120);
 
+//MIME TYPES
+define("XML_MIME", "application/xml");
+define("JSON_MIME", "application/json");
+
+//Hard code username and password as there is no users table
+define("USERNAME", "matt");
+define("PASSWORD", "mattPass");
+
+//Headers
+define("HTTP_HEADER_USERNAME", "Username");
+define("HTTP_HEADER_PASSWORD", "Password");
+define("HTTP_HEADER_CONTENT_TYPE", "Content-Type");
+define("HTTP_HEADER_ACCEPT", "Accept");
+
 /* general message */
 define("GENERAL_MESSAGE_LABEL", "message");
 define("GENERAL_SUCCESS_MESSAGE", "success");
@@ -60,32 +71,17 @@ define("GENERAL_INVALIDTOKEN_ERROR", "Invalid token");
 define("GENERAL_APINOTEXISTING_ERROR", "Api is not existing");
 define("GENERAL_RESOURCE_CREATED", "Resource has been created");
 define("GENERAL_RESOURCE_UPDATED", "Resource has been updated");
+define("GENERAL_RESOURCE_DELETED", "Resource has been deleted");
+
 define("GENERAL_FORBIDDEN", "Request is ok but action is forbidden");
 define("GENERAL_INVALIDBODY", "Request is ok but transmitted body is invalid");
-
-define("GENERAL_WELCOME_MESSAGE", "Welcome to MSc dissertation API");
-
-
-define("XML_MIME", "application/xml");
-define("JSON_MIME", "application/json");
+define("GENERAL_MESSAGE_CREDS_NOT_GIVEN", "username and password required");
+define("INVALID_PASSWORD", "Incorrect Password");
+define("INVALID_USERNAME", "Incorrect Username");
 
 
-/* representation of a new user in the DB */
-define("TABLE_USER_NAME_LENGTH", 25);
-define("TABLE_USER_SURNAME_LENGTH", 25);
-define("TABLE_USER_EMAIL_LENGTH", 50);
-define("TABLE_USER_PASSWORD_LENGTH", 40);
-
-
-//DB field names
-define("MWL_TOTAL_FIELD_NAME", "MWL_total");
-define("RSME_FIELD_NAME", "RSME");
-define("TASK_NUMBER_FIELD_NAME", "task_number");
-define("INTRUSIVENESS_FIELD_NAME", "intrusiveness");
-
-
-//Hard code username and password as there is no users table
-define("USERNAME", "matt");
-define("PASSWORD", "mattPass");
-
+//folders
+define("MODEL_FOLDER", "models/");
+define("CONTROLLER_FOLDER", "controllers/");
+define("VIEW_FOLDER", "views/");
 ?>

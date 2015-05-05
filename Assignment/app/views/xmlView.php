@@ -1,11 +1,12 @@
 <?php
 /**
 *   @author Matthew O'Neill / C11354316
+* An XML view inherting from base view
 */
 require_once 'baseView.php';
 class xmlView extends baseView{
 
-    //I stole this from here: http://lab.artlung.com/xml-encode/
+    //adapted from: http://lab.artlung.com/xml-encode/
     private function xml_encode($mixed,$domElement=null,$DOMDocument=null){
         if(is_null($DOMDocument)){
             $DOMDocument=new DOMDocument;
@@ -30,9 +31,9 @@ class xmlView extends baseView{
                         $domElement->appendChild($plural);
                         $node=$plural;
                         if(rtrim($index,'s')!==$index){
-                            $singular=$DOMDocument->createElement(rtrim($index,'s'));
-                            $plural->appendChild($singular);
-                            $node=$singular;
+                            // $singular=$DOMDocument->createElement(rtrim($index,'s'));
+                            // $plural->appendChild($singular);
+                            // $node=$singular;
                         }
                     }
                     $this->xml_encode($mixedElement,$node,$DOMDocument);

@@ -1,6 +1,12 @@
 <?php
 require_once 'helpers.php';
 
+
+/**
+ * A controller for operations involving students
+ * @author Matthew O'Neill / C11354316
+ *
+ */
 class StudentController {
     private $slimApp;
     private $model;
